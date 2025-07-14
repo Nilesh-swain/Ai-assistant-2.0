@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import Answer from './components/Answer';
 
 function App() {
   const [question, setQuestion] = useState('');
@@ -24,7 +25,11 @@ function App() {
     });
 
     const data = await response.json();
-    // console.log(data.candidates[0].content.parts[0].text);
+    let dataString = data.candidates[0].content.parts[0].text;
+    dataString = dataString.split("* ")
+    dataString= dataString.map((item)=>item.trim())
+
+    console.log(dataString);
     setResult(data.candidates[0].content.parts[0].text);
   }
 
@@ -36,9 +41,10 @@ function App() {
       </div>
       {/* Right Side Bar */}
       <div className='col-span-4 p-4'>
-        <div className="container h-170 overflow-scroll">
+        <div className="container h-170 overflow-auto no-scrollbar ">
           <div className="text-white">
             {result}
+            <Answer/>
           </div>
         </div>
         <div className='bg-zinc-800 w-1/2 p-1 pr-5 text-white m-auto rounded-4xl border border-zinc-700 flex h-16'>
