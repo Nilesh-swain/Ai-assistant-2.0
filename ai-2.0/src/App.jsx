@@ -49,7 +49,7 @@ function App() {
         </div>
         <div className='bg-zinc-800 w-1/2 p-1 pr-5 text-white m-auto rounded-4xl border border-zinc-700 flex h-16'>
           <input type="text" value={question} onChange={(event) => setQuestion(event.target.value)} className='w-full h-full p-3 outline-none' placeholder='Ask Me AnyThing.' />
-          <button onClick={askQuestion} className='p-2 cursor-pointer'>Ask</button>
+          <button onClick={askQuestion} className='p-2 cursor-pointer '>Ask</button>
         </div>
       </div>
     </div>
